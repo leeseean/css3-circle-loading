@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>圆形轨迹加载动画</title>
+    <style>
+        .rect {
+            width: 200px;
+            height: 200px;
+            border: 1px gray solid;
+            position: relative;
+        }
+
+        .rect:hover .wrap .left-circle {
+            animation-name: loading;
+            animation-delay: 0s;
+            animation-direction: normal;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: 1;
+            animation-timing-function: ease-out;
+        }
+
+        .rect:hover .wrap .right-circle {
+            animation-name: loading;
+            animation-delay: 1s;
+            animation-direction: normal;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: 1;
+            animation-timing-function: ease-out;
+        }
+
+        .rect .wrap {
+            width: 100px;
+            height: 200px;
+            position: absolute;
+            overflow: hidden;
+        }
+
+        .rect .left-rect {
+            left: 0;
+        }
+
+        .rect .right-rect {
+            right: 0;
+        }
+
+        .rect .wrap .circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            box-sizing: border-box;
+            border: 2px solid transparent;
+            position: absolute;
+            transform: rotate(225deg);
+        }
+
+        .rect .wrap .left-circle {
+            left: 0;
+            border-left: 2px solid orange;
+            border-bottom: 2px solid orange;
+        }
+
+        .rect .wrap .right-circle {
+            right: 0;
+            border-right: 2px solid orange;
+            border-top: 2px solid orange;
+        }
+
+        @keyframes loading {
+            0% {
+                transform: rotate(225deg);
+            }
+            100% {
+                transform: rotate(45deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="rect">
+        <div class="wrap left-rect">
+            <div class="circle left-circle"></div>
+        </div>
+        <div class="wrap right-rect">
+            <div class="circle right-circle"></div>
+        </div>
+    </div>
+</body>
+
+</html>
